@@ -1,0 +1,85 @@
+				<div class="modal-dialog">
+					<div class="modal-content">						
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+							<h4 class="modal-title" id="myModalLabel">
+								Submit Character Update
+							</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form" id="characterUpdate" action="updateChar.php" method="post">
+								<p class="help-block">
+								Enter your character data!
+								</p>
+								<div class="form-group">
+									 <label for="characterName">Character Name</label><input type="text" class="form-control" id="characterName" name="characterName"/>
+								</div>
+								<div class="form-group">
+									<label for="characterRole">Role</label><select class="form-control" id="characterRole" name="characterRole">
+										<option>Tank</option>
+										<option>DPS</option>
+										<option>Healer</option></select>
+								</div>
+								<div class="form-group">
+									<label for="attunementProgress">Current Attunement Step</label><select class="form-control" id="attunementProgress" name="attunementProgress">
+										<option value="1">1: Reach Level 50</option>
+										<option value="2">2: Buy Security Key</option>
+										<option value="3">3: Kill Pyralos</option>
+										<option value="4">4: Beloved Dominion Rep</option>
+										<option value="5">5: Arkship Heist</option>
+										<option value="6">6: Silver Adventures (See below)</option>
+										<option value="7">7: Mech-Assault Event</option>
+										<option value="8">8: Silver Dungeons (See below)</option>
+										<option value="9">9: Slugging It Out</option>
+										<option value="10">10: Flight of Fancy</option>
+										<option value="11">11: Kill 10 World Bosses (See below)</option></select>
+								</div>
+								<script>
+									$('#attunementProgress').on('change', function() {
+										var val = $(this).val();
+										$('#6').hide();
+										$('#8').hide();
+										$('#' + val).fadeIn().removeClass('hidden');
+									});
+								</script>
+								<div class="hidden" id="6">
+									<p class="help-block">
+										Check the ones you've completed!
+									</p>
+									<div class="checkbox">
+										<label for="adventureList"><input type="checkbox" name="adventureList" id="adventureList" value="siege"/>Siege of Tempest Refuge</label>
+									</div>
+									<div class="checkbox">
+										<label for="adventureList2"><input type="checkbox" name="adventureList" id="adventureList2" value="wotw"/>War of the Wilds</label>
+									</div>
+									<div class="checkbox">
+										<label for="adventureList3"><input type="checkbox" name="adventureList" id="adventureList3" value="crimelords"/>Crimelords of Whitevale</label>
+									</div>
+									<div class="checkbox">
+										<label for="adventureList4"><input type="checkbox" name="adventureList" id="adventureList4" value="malgrave"/>The Malgrave Trail</label>
+									</div>
+								</div>
+								<div class="hidden" id="8">
+									<p class="help-block">
+										Check the ones you've completed!
+									</p>
+									<div class="checkbox">
+										<label for="dungeonList"><input type="checkbox" name="dungeonList" id="dungeonList" value="stormtalon"/>Stormtalon</label>
+									</div>
+									<div class="checkbox">
+										<label for="dungeonList2"><input type="checkbox" name="dungeonList" id="dungeonList2" value="kelvoreth"/>Kel Voreth</label>
+									</div>
+									<div class="checkbox">
+										<label for="dungeonList3"><input type="checkbox" name="dungeonList" id="dungeonList3" value="skullcano"/>Skullcano</label>
+									</div>
+									<div class="checkbox">
+										<label for="dungeonList4"><input type="checkbox" name="dungeonList" id="dungeonList4" value="ssm"/>Swordmaiden</label>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button form="characterUpdate" type="submit" class="btn btn-primary" id="submit">Save changes</button>
+						</div>
+					</div>
+				</div>
